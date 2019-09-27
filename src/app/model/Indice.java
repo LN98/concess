@@ -15,19 +15,9 @@ public class Indice {
 		attivo=true;
 	}
 
-
-	public void setN(int n) {
-		this.n = n;
-	}
-
-
-	public void setOffset(int offset) {
-		this.offset = offset;
-	}
-
-
-	public void setTarga(String targa) {
-		this.targa = targa;
+	@Override
+	public String toString() {
+		return "n=" + n + ", targa=" + targa + ", offset=" + offset + " attivo=" + attivo+"\n";
 	}
 
 

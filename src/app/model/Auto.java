@@ -33,6 +33,11 @@ public class Auto {
 	public long getPrezzo() {
 		return prezzo;
 	}
+
+	@Override
+	public String toString() {
+		return "targa=" + targa + ", descr=" + descr + ", anno=" + anno + ", km=" + km + ", prezzo=" + prezzo+"\n";
+	}
 	
 	
 
