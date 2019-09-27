@@ -2,6 +2,7 @@ package app.model;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -33,11 +34,11 @@ public class Concess {
 			inA.close();
 			
 			
-			BufferedReader inB=new BufferedReader(new FileReader("indice.txt"));
+			BufferedReader inI=new BufferedReader(new FileReader("indice.txt"));
 			FileWriter fI = new FileWriter("indice.txt", true);
 			fI.write(i.toString());
 			fI.close();
-			inB.close();
+			inI.close();
 		}catch(IOException e) {
 			System.out.println("file non trovato");
 		}
@@ -54,22 +55,31 @@ public class Concess {
 			}
 		}
 
-	}//da modificare quando importerò il file
-	
-	public void cerca(String t) {
-		int n;
-		n=0;
-		for(int i=0;i<listaI.size();i++) {
-			n+=listaI.get(i).getOffset();
-			if(listaI.get(i).getTarga().equalsIgnoreCase(t)) {
-				if(i==0) {
+	}// da modificare quando importerò il file
+
+	public String cerca(String t) {
+		String n="targa non trovato";
+		for (int i = 0; i < listaI.size(); i++) {
+			if (listaI.get(i).getTarga().equalsIgnoreCase(t)) {
+				try {
+					BufferedReader inA=new BufferedReader(new FileReader("auto.txt"));
+					for(int k=0;k<listaI.get(i).getN();k++ ) {
+						inA.readLine();
+					}
+					n=inA.readLine();
+					inA.close();
 					
-				}
-				
+				} catch (Exception e) {
+					e.printStackTrace();
+				}break;
 			}
+
 		}
+		return n;
+		
+		
 	}
-	
+
 	public void listaC() {
 		for (int i = 0; i < listaI.size(); i++) {
 			if (!listaI.get(i).isAttivo()) {
@@ -80,6 +90,9 @@ public class Concess {
 		}
 		
 	}
+	
+	
+	
 
 
 }

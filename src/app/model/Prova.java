@@ -1,23 +1,34 @@
 package app.model;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class Prova {
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		
 		Concess concessionario=new Concess();
 		
 		Auto a=new Auto("ciao","hello","world",828,889484);
+		Auto b =new Auto("sono io","ss","dd",5525,999);
 		
 		concessionario.aggiungiAuto(a);
-		System.out.println("fine");
+		concessionario.aggiungiAuto(b);
 		
-		ArrayList<String> b =new ArrayList<>();
-		b.add("ciao");
-		System.out.println(b.indexOf("ciao"));
+		System.out.println(concessionario.cerca("sono o"));
 		
 		
+	
+		
+		
+//		try {
+//			RandomAccessFile raf = new RandomAccessFile("auto.txt", "rw");
+//			
+//			System.out.println(raf.length());
+//			
+//		} catch (FileNotFoundException e) {
+//			e.printStackTrace();
+//		}
 	
 	}
 }

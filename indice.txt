@@ -1,0 +1,4 @@
+n=0, targa=ciao, offset=59 attivo=true
+n=1, targa=sono io, offset=54 attivo=true
+n=0, targa=ciao, offset=59 attivo=true
+n=1, targa=sono io, offset=54 attivo=true
