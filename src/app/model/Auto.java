@@ -4,6 +4,7 @@ public class Auto {
 	
 	private String targa,descr,anno;
 	private long km,prezzo;
+	private boolean attivo;
 	
 	public Auto(String targa, String descr, String anno, long km, long prezzo) {
 		super();
@@ -12,6 +13,15 @@ public class Auto {
 		this.anno = anno;
 		this.km = km;
 		this.prezzo = prezzo;
+		attivo=true;
+	}
+
+	public boolean isAttivo() {
+		return attivo;
+	}
+
+	public void setAttivo(boolean attivo) {
+		this.attivo = attivo;
 	}
 
 	public String getTarga() {

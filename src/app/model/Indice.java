@@ -4,7 +4,6 @@ public class Indice {
 
 	private int n,offset;
 	private String targa;
-	private boolean attivo;
 	
 	 
 	public Indice(int n, String targa, int o) {
@@ -12,18 +11,13 @@ public class Indice {
 		this.n = n;
 		this.targa = targa;
 		this.offset=o;
-		attivo=true;
 	}
 
 	@Override
 	public String toString() {
-		return "n=" + n + ", targa=" + targa + ", offset=" + offset + " attivo=" + attivo+"\n";
+		return "n=" + n + ", targa=" + targa + ", offset=" + offset;
 	}
 
-
-	public void setAttivo(boolean attivo) {
-		this.attivo = attivo;
-	}
 
 
 	public int getN() {
@@ -41,9 +35,5 @@ public class Indice {
 	}
 
 
-	public boolean isAttivo() {
-		return attivo;
-	}
-	 
 	 
 }

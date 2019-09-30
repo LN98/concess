@@ -44,18 +44,31 @@ public class Concess {
 		}
 		
 		
-	}
+	}//finito
 
 	public void eliminaAuto(String t) {
 
 		for (int i = 0; i < listaI.size(); i++) {
-			if (listaI.get(i).getTarga().equalsIgnoreCase(t)) {
-				listaI.get(i).setAttivo(false);
+			if (listaA.get(i).getTarga().equalsIgnoreCase(t)) {
+				listaA.get(i).setAttivo(false);
 				break;
 			}
 		}
 
 	}// da modificare quando importerò il file
+	
+	public void ripristinaAuto(String t) {
+
+		for (int i = 0; i < listaA.size(); i++) {
+			if (listaA.get(i).getTarga().equalsIgnoreCase(t)) {
+				listaA.get(i).setAttivo(true);
+				break;
+			}
+		}
+
+	}// da modificare quando importerò il file
+	
+	
 
 	public String cerca(String t) {
 		String n="targa non trovato";
@@ -78,21 +91,27 @@ public class Concess {
 		return n;
 		
 		
-	}
+	}//finito
 
-	public void listaC() {
-		for (int i = 0; i < listaI.size(); i++) {
-			if (!listaI.get(i).isAttivo()) {
-				for(int k=0;k<i;k++) {
-					                                               
+	public ArrayList<String> listaC() {
+		ArrayList<String> lista = new ArrayList<>();
+	
+			for (int i = 0; i < listaA.size(); i++) {
+				if (!listaA.get(i).isAttivo()) {
+
+					lista.add(listaA.get(i).toString());
 				}
+			} 
+		return lista;
+
+	}// finito 
+	
+	public void compattazione() {
+		for(int i=0;i<listaI.size();i++) {
+			for(int k=i+1;i<listaI.size();k++) {
+				listaI.get(i).getTarga().compareTo(listaI.get(k).getTarga());
 			}
 		}
-		
 	}
-	
-	
-	
-
 
 }

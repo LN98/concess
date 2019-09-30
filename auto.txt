@@ -1,4 +1,3 @@
-targa=ciao, descr=hello, anno=world, km=828, prezzo=889484
-targa=sono io, descr=ss, anno=dd, km=5525, prezzo=999
-targa=ciao, descr=hello, anno=world, km=828, prezzo=889484
-targa=sono io, descr=ss, anno=dd, km=5525, prezzo=999
+targa=aciao, descr=hello, anno=world, km=828, prezzo=889484
+targa=csono io, descr=ss, anno=dd, km=5525, prezzo=999
+targa=ccsono io, descr=ss, anno=dd, km=5525, prezzo=999

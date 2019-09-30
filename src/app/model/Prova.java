@@ -9,13 +9,18 @@ public class Prova {
 		
 		Concess concessionario=new Concess();
 		
-		Auto a=new Auto("ciao","hello","world",828,889484);
-		Auto b =new Auto("sono io","ss","dd",5525,999);
+		Auto a=new Auto("aciao","hello","world",828,889484);
+		Auto b =new Auto("csono io","ss","dd",5525,999);
+		Auto c =new Auto("ccsono io","ss","dd",5525,999);
+		
 		
 		concessionario.aggiungiAuto(a);
 		concessionario.aggiungiAuto(b);
+		concessionario.aggiungiAuto(c);
 		
-		System.out.println(concessionario.cerca("sono o"));
+		concessionario.eliminaAuto("ccsono io");
+		
+		concessionario.listaC();
 		
 		
 	
