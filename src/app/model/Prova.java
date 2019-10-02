@@ -9,8 +9,8 @@ public class Prova {
 		
 		Concess concessionario=new Concess();
 		
-		Auto a=new Auto("aciao","hello","world",828,889484);
-		Auto b =new Auto("csono io","ss","dd",5525,999);
+		Auto a=new Auto("ciao","hello","world",828,889484);
+		Auto b =new Auto("aciao","ss","dd",5525,999);
 		Auto c =new Auto("ccsono io","ss","dd",5525,999);
 		
 		
@@ -23,6 +23,7 @@ public class Prova {
 		concessionario.listaC();
 		
 		
+		System.out.println(concessionario.listaI.get(0).compareTo(concessionario.listaI.get(1)));
 	
 		
 		

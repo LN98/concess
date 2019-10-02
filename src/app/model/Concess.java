@@ -7,12 +7,13 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Concess {
 	
 	private List<Auto> listaA;
-	private List<Indice> listaI;
+	public List<Indice> listaI;
 	
 	public Concess() {
 		listaA=new ArrayList<>();
@@ -55,7 +56,7 @@ public class Concess {
 			}
 		}
 
-	}// da modificare quando importerò il file
+	}// finito
 	
 	public void ripristinaAuto(String t) {
 
@@ -66,7 +67,7 @@ public class Concess {
 			}
 		}
 
-	}// da modificare quando importerò il file
+	}//finito
 	
 	
 
@@ -93,13 +94,13 @@ public class Concess {
 		
 	}//finito
 
-	public ArrayList<String> listaC() {
-		ArrayList<String> lista = new ArrayList<>();
+	public ArrayList<Auto> listaC() {
+		ArrayList<Auto> lista = new ArrayList<>();
 	
 			for (int i = 0; i < listaA.size(); i++) {
 				if (!listaA.get(i).isAttivo()) {
 
-					lista.add(listaA.get(i).toString());
+					lista.add(listaA.get(i));
 				}
 			} 
 		return lista;
@@ -107,11 +108,33 @@ public class Concess {
 	}// finito 
 	
 	public void compattazione() {
-		for(int i=0;i<listaI.size();i++) {
-			for(int k=i+1;i<listaI.size();k++) {
-				listaI.get(i).getTarga().compareTo(listaI.get(k).getTarga());
+		ArrayList<Auto> lista = new ArrayList<>();
+		for(int i=0;i<listaA.size();i++) {
+			if(listaA.get(i).isAttivo()) {
+				lista.add(listaA.get(i));
 			}
 		}
+		listaA=lista;
+		
+		Indice a;
+		for(int i=0;i<lista.size();i++) {
+			for(int k=0;k<listaI.size();k++) {
+				if(lista.get(i).getTarga().equalsIgnoreCase(listaI.get(k).getTarga())) {
+					a=listaI.get(k);
+					listaI.remove(a);
+					for(int j=0;j<listaI.size();j++) {
+						if(listaI.get(j).getN()>a.getN()) {
+							listaI.get(j).setN(listaI.get(j).getN()-1);
+						}
+					}
+				}
+			}
+		}
+		
+	}
+	
+	public void ordinare() {
+		
 	}
 
 }

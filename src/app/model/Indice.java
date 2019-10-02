@@ -1,6 +1,13 @@
 package app.model;
 
-public class Indice {
+import java.util.Comparator;
+
+public class Indice implements Comparable<Indice> {
+
+	public void setN(int n) {
+		this.n = n;
+	}
+
 
 	private int n,offset;
 	private String targa;
@@ -32,6 +39,16 @@ public class Indice {
 
 	public String getTarga() {
 		return targa;
+	}
+
+	
+
+	
+
+	@Override
+	public int compareTo(Indice o) {
+		
+		return targa.compareTo(o.getTarga());
 	}
 
 

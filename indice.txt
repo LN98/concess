@@ -1,3 +1,4 @@
 n=0, targa=aciao, offset=60 attivo=true
 n=1, targa=csono io, offset=55 attivo=true
 n=2, targa=ccsono io, offset=56 attivo=true
+n=0, targa=aciao, offset=60n=1, targa=csono io, offset=55n=2, targa=ccsono io, offset=56n=0, targa=aciao, offset=60n=1, targa=csono io, offset=55n=2, targa=ccsono io, offset=56n=0, targa=aciao, offset=60n=1, targa=aciao, offset=52n=2, targa=ccsono io, offset=56n=0, targa=aciao, offset=60n=1, targa=ciao, offset=51n=2, targa=ccsono io, offset=56n=0, targa=ciao, offset=59n=1, targa=aciao, offset=52n=2, targa=ccsono io, offset=56n=0, targa=ciao, offset=59n=1, targa=aciao, offset=52n=2, targa=ccsono io, offset=56
