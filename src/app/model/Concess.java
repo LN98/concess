@@ -1,23 +1,23 @@
 package app.model;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 public class Concess {
 	
 	private List<Auto> listaA;
-	public List<Indice> listaI;
+	public HashMap<String,Indice> listaI;
 	
 	public Concess() {
 		listaA=new ArrayList<>();
-		listaI=new ArrayList<>();
+		listaI=new HashMap<>();
 	}
 	
 	public void aggiungiAuto(Auto a ) {
@@ -25,7 +25,7 @@ public class Concess {
 		Indice i=new Indice(listaA.indexOf(a),a.getTarga(),a.toString().length());
 		
 		
-		listaI.add(i);
+		listaI.put(i.getTarga(),i);
 		
 		try {
 			BufferedReader inA=new BufferedReader(new FileReader("auto.txt"));
@@ -67,32 +67,26 @@ public class Concess {
 			}
 		}
 
-	}//finito
-	
-	
+	}// finito
 
 	public String cerca(String t) {
-		String n="targa non trovato";
-		for (int i = 0; i < listaI.size(); i++) {
-			if (listaI.get(i).getTarga().equalsIgnoreCase(t)) {
-				try {
-					BufferedReader inA=new BufferedReader(new FileReader("auto.txt"));
-					for(int k=0;k<listaI.get(i).getN();k++ ) {
-						inA.readLine();
-					}
-					n=inA.readLine();
-					inA.close();
-					
-				} catch (Exception e) {
-					e.printStackTrace();
-				}break;
-			}
+		String n = "targa non trovato";
 
+		try {
+			BufferedReader inA = new BufferedReader(new FileReader("auto.txt"));
+			for (int k = 0; k < listaI.size(); k++) {
+				inA.readLine();
+			}
+			n = inA.readLine();
+			inA.close();
+
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
+
 		return n;
-		
-		
-	}//finito
+
+	}// modifiare all'aggiungimento di offset
 
 	public ArrayList<Auto> listaC() {
 		ArrayList<Auto> lista = new ArrayList<>();
@@ -112,28 +106,49 @@ public class Concess {
 		for(int i=0;i<listaA.size();i++) {
 			if(listaA.get(i).isAttivo()) {
 				lista.add(listaA.get(i));
+				System.out.println("2");
 			}
 		}
 		listaA=lista;
 		
 		Indice a;
-		for(int i=0;i<lista.size();i++) {
-			for(int k=0;k<listaI.size();k++) {
-				if(lista.get(i).getTarga().equalsIgnoreCase(listaI.get(k).getTarga())) {
-					a=listaI.get(k);
-					listaI.remove(a);
-					for(int j=0;j<listaI.size();j++) {
-						if(listaI.get(j).getN()>a.getN()) {
-							listaI.get(j).setN(listaI.get(j).getN()-1);
+			
+
+			for(int k=0;k<lista.size();k++) {
+				if(!listaI.containsKey(lista.get(k).getTarga())) {
+					a=listaI.get(lista.get(k).getTarga());
+					listaI.remove(lista.get(k).getTarga());
+					for(int j=0;j<lista.size();j++) {
+						if(listaI.get(lista.get(j).getTarga()).getN()>a.getN()) {
+							listaI.get(lista.get(j).getTarga()).setN((listaI.get(lista.get(j).getTarga()).getN()-1));
 						}
 					}
 				}
 			}
+		try {
+			FileWriter w =new FileWriter("indice.txt");
+			w.write("");
+			w.close();
+			FileWriter w2 = new FileWriter("indice.txt",true);
+			Iterator it = listaI.entrySet().iterator();
+			while (it.hasNext()) {
+
+				Map.Entry entry = (Map.Entry) it.next();
+				System.out.println("1");
+//				w2.write(listaI.get(entry.getKey()).toString());
+			}
+			w2.close();
+		} catch (Exception e) {
+			System.out.println(e);
 		}
-		
+
 	}
 	
 	public void ordinare() {
+		
+		
+		
+		
 		
 	}
 

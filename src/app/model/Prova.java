@@ -22,8 +22,7 @@ public class Prova {
 		
 		concessionario.listaC();
 		
-		
-		System.out.println(concessionario.listaI.get(0).compareTo(concessionario.listaI.get(1)));
+		concessionario.compattazione();
 	
 		
 		

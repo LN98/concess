@@ -4,27 +4,29 @@ import java.util.Comparator;
 
 public class Indice implements Comparable<Indice> {
 
-	public void setN(int n) {
-		this.n = n;
-	}
 
 
-	private int n,offset;
+	private int n;
+	//offset
 	private String targa;
+	
 	
 	 
 	public Indice(int n, String targa, int o) {
 		super();
 		this.n = n;
 		this.targa = targa;
-		this.offset=o;
 	}
 
 	@Override
 	public String toString() {
-		return "n=" + n + ", targa=" + targa + ", offset=" + offset;
+		return "n=" + n + ", targa=" + targa+"\n";
 	}
 
+
+	public void setN(int n) {
+		this.n = n;
+	}
 
 
 	public int getN() {
@@ -32,16 +34,14 @@ public class Indice implements Comparable<Indice> {
 	}
 
 
-	public int getOffset() {
-		return offset;
-	}
-
 
 	public String getTarga() {
 		return targa;
 	}
 
-	
+	//public int getOffset(){
+//		return offset;
+//	}
 
 	
 
